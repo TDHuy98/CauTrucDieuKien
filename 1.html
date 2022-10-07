@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+<h2>Kiểm tra năm nhuận</h2>
+<input type="text" id="year" name="year" placeholder="Nhập số năm">
+<button onclick="kiemtra()" name="Kiểm tra">Kiểm tra</button>
+<script>
+    function kiemtra() {
+        let a = parseInt(document.getElementById('year').value);
+        if (a < 100)/* trường hợp năm này <100*/
+            if (a % 4 == 0)
+            document.getElementById('kl').innerHTML = "Đây là năm nhuận"
+            else
+            document.getElementById('kl').innerHTML = "Đây không là năm nhuận"
+        else/* trường hợp lớn hơn 100 năm*/
+            if (a % 4 == 0) /*a chia hết cho 4*/
+                if (a % 100 == 0)/*a chia hết cho 4 và cho 100*/
+                    if (a % 400 == 0) /*a chia hết cho 4, cho 100 và 400*/
+                        document.getElementById('kl').innerHTML = "Đây là năm nhuận"
+                    else//a chia hết cho 4 cho 100 và không chia hết cho 400
+                        document.getElementById('kl').innerHTML = "Đây không là năm nhuận"
+                else/* a chia hết cho 4 nhưng không chia hết cho 100*/
+                document.getElementById('kl').innerHTML = "Đây là năm nhuận"
+            else/* a không chia hết cho 4*/
+            document.getElementById('kl').innerHTML = "Đây không là năm nhuận"
+    }
+</script>
+<p id="kl"></p>
+</body>
+</html>
